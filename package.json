@@ -4,7 +4,9 @@
   "description": "Serviço de Envio de E-mail",
   "main": "/src/index.ts",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only ./src/index.ts"
+    "dev": "tsnd --respawn --transpile-only ./src/index.ts",
+    "build": "tsc -p .",
+    "start:prod": "npm run build && node build/index.js"
   },
   "keywords": [],
   "author": "",
