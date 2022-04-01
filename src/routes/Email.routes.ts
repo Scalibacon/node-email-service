@@ -6,7 +6,9 @@ const emailRouter = Router();
 
 emailRouter.post('/', celebrate({
   [Segments.BODY]: Joi.object().keys({
-    email: Joi.string().email().required(),
+    from: Joi.string().email().required(),
+    to: Joi.string().email(),
+    subject: Joi.string().required(),
     content: Joi.string().required()
   })
 }), emailController.sendEmail);

@@ -1,7 +1,12 @@
 import nodemailer from 'nodemailer';
 
 class EmailService{
-  async sendEmail(content: string, email: string): Promise<boolean>{
+  async sendEmail(
+    subject: string,
+    content: string, 
+    from: string, 
+    to: string = 'matheusferreira_mfn@hotmail.com'
+  ): Promise<boolean>{
     try {
       const transporter = nodemailer.createTransport({
         service: 'hotmail',
@@ -16,9 +21,9 @@ class EmailService{
   
       const mailOptions = {
         from: process.env.EMAIL,
-        to: 'matheusferreira_mfn@hotmail.com',
-        subject: 'E-mail enviado do Portfas do Tetheus',
-        text: `${content} \nDe: ${email}`
+        to: to,
+        subject: subject,
+        text: `${content} \n\nDe: ${from}`
       }
   
       return new Promise( (resolve: Function, reject: Function) => {
