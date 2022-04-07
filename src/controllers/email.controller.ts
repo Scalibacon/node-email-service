@@ -3,9 +3,9 @@ import emailService from '../services/email.service';
 
 class EmailController{
   async sendEmail(request: Request, response: Response){
-    const { from, to, subject, content } = request.body;
+    const { from, to, subject, content, phone } = request.body;
     
-    const result = await emailService.sendEmail(subject, content, from, to);
+    const result = await emailService.sendEmail(subject, content, from, to, phone);
 
     if(result){
       return response.status(200).json({message: 'E-mail enviado com sucesso!'});

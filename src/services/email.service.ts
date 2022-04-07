@@ -5,7 +5,8 @@ class EmailService{
     subject: string,
     content: string, 
     from: string, 
-    to: string = 'matheusferreira_mfn@hotmail.com'
+    to: string = 'matheusferreira_mfn@hotmail.com',
+    phone: string = 'Não informado'
   ): Promise<boolean>{
     try {
       const transporter = nodemailer.createTransport({
@@ -23,7 +24,7 @@ class EmailService{
         from: process.env.EMAIL,
         to: to,
         subject: subject,
-        text: `${content} \n\nDe: ${from}`
+        text: `${content} \n\nDe: ${from}\nTelefone: ${phone}`
       }
   
       return new Promise( (resolve: Function, reject: Function) => {
