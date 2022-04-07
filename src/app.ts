@@ -8,6 +8,13 @@ const corsOptions = {
 }
 
 const originBlocker = function(req: Request, res: Response, next: NextFunction) {  
+  const ref = req.headers.referer;
+  console.log('headers =>', req.headers);
+
+  if(!ref){
+    return res.status(403).send('Invalid origin refzada');
+  }
+
   const baseURL = req.protocol + '://' + req.headers.host + '/';
   const reqUrl = new URL(req.url,baseURL);
 
