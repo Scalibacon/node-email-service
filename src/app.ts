@@ -11,7 +11,7 @@ const corsOptions = {
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
-// app.use(originBlocker);
+app.use(originBlocker);
 app.use(routes);
 app.use(errors());
 
