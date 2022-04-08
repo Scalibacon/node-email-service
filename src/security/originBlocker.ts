@@ -9,7 +9,7 @@ const originBlocker = (req: Request, res: Response, next: NextFunction) => {
     return res.status(403).send('Invalid origin');
   }
 
-  if(ref !== 'http://localhost:3000/' && ref !== 'https://scalibacon.github.io/portfolio/'){
+  if(ref !== 'http://localhost:3000/' && ref !== 'https://scalibacon.github.io/'){
     console.log('Tentativa de acesso bloqueada! Host =>', ref);
     return res.status(403).send('Invalid origin');
   }
