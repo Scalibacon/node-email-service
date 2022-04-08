@@ -5,7 +5,7 @@ import routes from './routes/routes';
 import originBlocker from './security/originBlocker';
 
 const corsOptions = {
-  origin: ['https://scalibacon.github.io', 'http://localhost:3000'],
+  origin: ['https://scalibacon.github.io'],
 }
 
 const app = express();
