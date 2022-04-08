@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 
 const originBlocker = (req: Request, res: Response, next: NextFunction) => {  
   const ref = req.headers.referer;
-  console.log('headers =>', req.headers);
+  // console.log('headers =>', req.headers);
 
   if(!ref){
     console.log('Tentativa de acesso bloqueada!');
