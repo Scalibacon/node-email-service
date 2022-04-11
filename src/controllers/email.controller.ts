@@ -5,7 +5,8 @@ class EmailController{
   async sendEmail(request: Request, response: Response){
     const { from, to, subject, content, phone } = request.body;
     
-    const result = await emailService.sendEmail(subject, content, from, to, phone);
+    // tirei o to pra enviar só pra mim devido a tretas de segurança
+    const result = await emailService.sendEmail(subject, content, from, undefined, phone);
 
     if(result){
       return response.status(200).json({message: 'E-mail enviado com sucesso!'});
