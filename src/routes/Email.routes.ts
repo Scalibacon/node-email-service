@@ -10,7 +10,7 @@ emailRouter.post('/', celebrate({
     to: Joi.string().email(),
     subject: Joi.string().required(),
     content: Joi.string().required(),
-    phone: Joi.string()
+    phone: Joi.string().optional()
   })
 }), emailController.sendEmail);
 
